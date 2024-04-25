@@ -13,7 +13,6 @@ from models.review import Review
 import shlex
 
 
-
 class FileStorage:
     """This class manages storage of hbnb models in JSON format
      Attributes:
@@ -68,7 +67,6 @@ class FileStorage:
         except FileNotFoundError:
             pass
 
-    
     def delete(self, obj=None):
         """ delete an existing element
         """

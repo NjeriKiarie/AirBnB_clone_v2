@@ -11,7 +11,7 @@ Base = declarative_base()
 
 class BaseModel:
     """
-    This class defines all common methods 
+    This class defines all common methods
     for other classes
     """
     id = Column(String(60), unique=True, nullable=False, primary_key=True)
@@ -44,7 +44,7 @@ class BaseModel:
         else:
             self.id = str(uuid.uuid4())
             self.created_at = self.updated_at = datetime.now()
-            
+
     def __str__(self):
         """Returns a string representation of the instance"""
         return "[{}] ({}) {}".format(
@@ -55,7 +55,6 @@ class BaseModel:
         """
         return self.__str__()
 
-        
     def save(self):
         """Updates an instance with current time when instance is changed
         """
