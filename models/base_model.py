@@ -3,11 +3,10 @@
 from sqlalchemy.ext.declarative import declarative_base
 import uuid
 import models
-from models import storage
 from datetime import datetime
-from sqlalchemy import Column, Integer, String, DateTime
+from sqlalchemy import Column, Integer, String, DATETIME
 
-Base = declarative_base
+Base = declarative_base()
 
 
 class BaseModel:
@@ -16,8 +15,8 @@ class BaseModel:
     for other classes
     """
     id = Column(String(60), unique=True, nullable=False, primary_key=True)
-    created_at = Column(DateTime, nullable=False, default=(datetime.utcnow()))
-    updated_at = Column(DateTime, nullable=False, default=(datetime.utcnow()))
+    created_at = Column(DATETIME, nullable=False, default=(datetime.utcnow()))
+    updated_at = Column(DATETIME, nullable=False, default=(datetime.utcnow()))
 
     def __init__(self, *args, **kwargs):
         """Instance of base model class
@@ -51,7 +50,7 @@ class BaseModel:
         return "[{}] ({}) {}".format(
             type(self).__name__, self.id, self.__dict__)
 
-     def __repr__(self):
+    def __repr__(self):
         """return a string representaion
         """
         return self.__str__()
